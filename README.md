@@ -1,24 +1,43 @@
-# README
+# Abboo(アビボー)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### サイトテーマ
+留学に関する情報や個人の経験を簡単に共有できるWebアプリケーション。
+簡単で覚えやすい名前にするため、海外留学についての情報本のイメージで
+英語の abroad(海外) x book(本) を合わせて「Abboo(アビボー)」にしました。
 
-Things you may want to cover:
 
-* Ruby version
+### テーマを選んだ理由
 
-* System dependencies
+自分の留学経験を通じて以下のことを思いました。
 
-* Configuration
+- 初めての海外生活で、知らないことが多く情報も少ないので、とても不安だった。</br>
+- 他の国へ留学している人はどのように過ごしているのか気になる。</br>
+- せっかくの貴重な体験や意見を少しでも大切に残したい、共有したい。</br>
 
-* Database creation
+留学でのエピソードは人それぞれ。
+これから留学をする人や迷っている人に向けて少しでもサポートできるように
+テーマを選びました。
 
-* Database initialization
+### ターゲットユーザー
+- これから留学したい方
+- 留学することが不安、留学するか迷っている方
+- 留学経験のある方
 
-* How to run the test suite
+### 主な利用シーン
+- 留学前後におけるアドバイスやアイデアを共有する時
+- 留学中の経験やアイデアを記録したい時
+- 帰国後に自分自身の思い出を振り返りたい時
 
-* Services (job queues, cache servers, search engines, etc.)
+## 設計書
+<...>
 
-* Deployment instructions
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
