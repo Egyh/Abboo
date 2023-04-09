@@ -1,5 +1,9 @@
 class Public::ArticlesController < ApplicationController
-
+  
+ def new
+   @arttile = Article.new
+ end
+    
 
   def create
     @article = Article.new(article_params)
