@@ -1,0 +1,21 @@
+<%= form_with model: article,local:true do |f| %>
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control article_title' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: 'form-control article_body' %>
+  </div>
+  <!-- 追加部分 -->
+   <div class="form-group">
+  <%= f.label :image %>
+  <%= f.file_field :article_image, accept: "image/*" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.submit 'submit', class: "btn btn-success" %>
+  </div>
+
+<% end %>
