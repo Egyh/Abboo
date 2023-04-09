@@ -1,0 +1,14 @@
+ <% articles.each do |article| %>
+
+
+      <%= image_tag article.user.get_profile_image, size:'100x100' %>
+       <%= article.user.name %>
+
+
+        <%= link_to article.title,article %>
+        <%= article.body %>
+      <%= image_tag article.get_article_image, size:'50x50' %>
+
+     
+
+        <% end %>
