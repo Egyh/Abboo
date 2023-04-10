@@ -1,3 +1,20 @@
-<h1>Public::Articles#show</h1>
-<p>Find me in app/views/public/articles/show.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2>User info</h2>
+      <%= render 'public/users/info',user: @user %>
+     </div>
+     
+     <div class="col-md-8"  style="margin-top: 50px;">
+       
+       <div class="card" style="width: 18rem;">
+   <%= image_tag @article.get_article_image, size:'200x200' %>
+  <div class="card-body">
+    <h5 class="card-title"><%= @article.title %></h5>
+    <p class="card-text"><%= @article.body %></p>
+  </div>
+</div>
 
+  </div>
+   </div>
+   </div>

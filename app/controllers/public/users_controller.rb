@@ -4,8 +4,7 @@ class Public::UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:update]
   
   def index
-    @user = User.find(params[:id])
-    @users = user.all
+    @users = User.all
     @article = Article.new
     
   end
