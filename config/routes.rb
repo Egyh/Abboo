@@ -12,6 +12,7 @@ devise_for :users,skip: [:passwords], controllers: {
   root to: "homes#top"
   get "/homes/public/about" => "homes#about", as: "about"
   
+  
  resources :articles, only: [:new,:index,:show,:edit,:create,:destroy,:update] do
    
 end

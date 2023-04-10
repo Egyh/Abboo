@@ -1,7 +1,7 @@
 class Public::ArticlesController < ApplicationController
   
  def new
-   @arttile = Article.new
+   @article = Article.new
  end
     
 
@@ -11,7 +11,8 @@ class Public::ArticlesController < ApplicationController
     if @article.save
       redirect_to article_path(@article), notice: "You have created article successfully."
     else
-      @article = Article.all
+      @articles = Article.all
+      @user = current_user
       render 'index'
     end
   end
@@ -28,13 +29,29 @@ class Public::ArticlesController < ApplicationController
   end
 
   def edit
+     @article = Article.find(params[:id])
+
+  end
+  
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      redirect_to article_path(@article), notice: "You have updated book successfully."
+    else
+      render "edit"
+    end
+  end
+
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to articles_path
   end
 
   private
   def article_params
     #byebug
-    #params.require(:article).permit(:title, :body, :article_image)
-    params.permit(:title, :body, :article_image)
+    params.require(:article).permit(:title, :body, :article_image)
   end
 
   def is_matching_login_user
