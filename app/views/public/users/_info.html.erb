@@ -50,6 +50,10 @@
         <%= link_to "フォローする", user_relationships_path(user.id), method: :post, class: "btn btn-outline-success btn-block" %>
         <% end %>
         <% end %>　</div>
+        
+        <% if current_user != user %>
+  <%= link_to 'chatを始める', chat_path(user.id)%>
+<% end %>
 
 <div class='row'>
   <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>

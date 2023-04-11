@@ -5,7 +5,8 @@ class Public::ArticleCommentsController < ApplicationController
     comment = current_user.article_comments.new(article_comment_params)
     comment.article_id = @article.id
     comment.save
-     redirect_to article_path(@article), notice: "You have updated book successfully."
+    
+     redirect_to article_path(@article), notice: "You have updated article successfully."
   end
   
   def destroy
