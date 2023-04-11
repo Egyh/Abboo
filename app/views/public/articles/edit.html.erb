@@ -14,54 +14,28 @@
   <%= f.file_field :article_image, accept: "image/*" %>
   </div>
   
-  <h2>gmap</h2>
-  <input id="address" type="textbox" value="">
-
-<!-- buttonをクリックしたらcodeAddressを実行　-->
-<input type="button" value="search" onclick="codeAddress()">
+<h2>gmap</h2>
 <div id='map'></div>
 
 <style>
 #map{
-  height: 400px;
+  height: 200px;
 }
 </style>
 
 <script>
-let map
-let geocoder
-
 function initMap(){
-  // geocoderを初期化
-  geocoder = new google.maps.Geocoder()
-
-  map = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: 35.6811673, lng: 139.7670516},
+  let map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: <%= @article.latitude %>, lng: <%= @article.longitude %>},
   zoom: 8
   });
-}
 
-function codeAddress(){
-  // 入力を取得
-  let inputAddress = document.getElementById('address').value;
-
-  // geocodingしたあとmapを移動
-  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
-    if (status == 'OK') {
-　　　　　　　　　　　　// map.setCenterで地図が移動
-      map.setCenter(results[0].geometry.location);
-
-　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
-      var marker = new google.maps.Marker({
+  var marker = new google.maps.Marker({
           map: map,
-          position: results[0].geometry.location
-      });
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    }
-  });
-}
 
+          position: {lat: <%= @article.latitude %>, lng: <%= @article.longitude %>},
+      });
+}
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['SECRET_KEY'] %>&callback=initMap" async defer></script>
   

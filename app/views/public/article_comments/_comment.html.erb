@@ -6,7 +6,7 @@
           <td><%= article_comment.user.name %></td>
           <td><%= article_comment.comment %></td>
           <% if article_comment.user == current_user %>
-          <td><%= link_to "destroy", article_article_comment_path(articles_comment.article, article_comment), method: :delete, class: "btn btn-danger btn-sm" %></td>
+          <td><%= link_to "destroy", article_article_comment_path(article_comment.article, article_comment), method: :delete, class: "btn btn-danger btn-sm" %></td>
           </tr>
           <% end %>
           <% end %>
