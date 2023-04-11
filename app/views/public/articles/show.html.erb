@@ -4,16 +4,16 @@
       <h2>User info</h2>
       <%= render 'public/users/info',user: @user %>
      </div>
-     
+
      <div class="col-md-8"  style="margin-top: 50px;">
-       
+
        <div class="card" style="width: 18rem;">
    <%= image_tag @article.get_article_image, size:'200x200' %>
   <div class="card-body">
     <h5 class="card-title"><%= @article.title %></h5>
     <p class="card-text"><%= @article.body %></p>
   </div>
-  
+
 <h2>gmap</h2>
 <div id='map'></div>
 
@@ -29,15 +29,39 @@ function initMap(){
   center: {lat: <%= @article.latitude %>, lng: <%= @article.longitude %>},
   zoom: 8
   });
-  
+
   var marker = new google.maps.Marker({
           map: map,
-          
+
           position: {lat: <%= @article.latitude %>, lng: <%= @article.longitude %>},
       });
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['SECRET_KEY'] %>&callback=initMap" async defer></script>
+
+<h5>test</h5>
+
+<% if @article.favorited_by?(current_user) %>
+    <p>
+      <%= link_to article_favorites_path(@article), method: :delete do %>
+        ♥<%= @article.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to article_favorites_path(@article), method: :post do %>
+        ♡<%= @article.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
+  <%= render "public/article_comments/comment", article: @article %>
+
+
+    <%= form_with model: [@article, @article_comment] do |f| %>
+      <div><%= f.text_area :comment, rows: '5', placeholder: "commnent", class: "form-control" %> </div>
+      <div><%= f.submit "送信", class: "btn btn-primary" %></div>
+        <% end %>
+
    <% if @article.user == current_user %>
     <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-sm btn-success" %>
     <%= link_to 'Destroy', @article, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>

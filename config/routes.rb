@@ -14,7 +14,8 @@ devise_for :users,skip: [:passwords], controllers: {
   
   
  resources :articles, only: [:new,:index,:show,:edit,:create,:destroy,:update] do
-   
+   resources :article_comments, only:[:create, :destroy]
+   resource :favorites, only: [:create, :destroy]
 end
 
   resources :users, only: [:index,:show,:edit,:update] do
