@@ -1,9 +1,9 @@
 class Public::ArticlesController < ApplicationController
-  
+
  def new
    @article = Article.new
  end
-    
+
 
   def create
     @article = Article.new(article_params)
@@ -32,7 +32,7 @@ class Public::ArticlesController < ApplicationController
      @article = Article.find(params[:id])
 
   end
-  
+
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
@@ -51,7 +51,7 @@ class Public::ArticlesController < ApplicationController
   private
   def article_params
     #byebug
-    params.require(:article).permit(:title, :body, :article_image)
+    params.require(:article).permit(:title, :body, :article_image, :latitude, :longitude)
   end
 
   def is_matching_login_user
