@@ -11,6 +11,8 @@ devise_for :users,skip: [:passwords], controllers: {
  scope module: :public do
   root to: "homes#top"
   get "/homes/public/about" => "homes#about", as: "about"
+  get 'relationships/followings'
+  get 'relationships/followers'
   
   
  resources :articles, only: [:new,:index,:show,:edit,:create,:destroy,:update] do
@@ -19,6 +21,9 @@ devise_for :users,skip: [:passwords], controllers: {
 end
 
   resources :users, only: [:index,:show,:edit,:update] do
+    resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
 
 end
 
