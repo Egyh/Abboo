@@ -48,6 +48,12 @@ class Public::ArticlesController < ApplicationController
     @article.destroy
     redirect_to articles_path
   end
+  
+  # def hashtag
+  #   @user = current_user
+  #   @tag = Hashtag.find_by(name_tag: params[:name])
+  #   @article = @tag.article
+  # end
 
   private
   def article_params

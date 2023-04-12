@@ -12,6 +12,7 @@
   <div class="card-body">
     <h5 class="card-title"><%= @article.title %></h5>
     <p class="card-text"><%= @article.body %></p>
+    <%#= render_with_hashtags(@article.caption) %>
   </div>
 
 <h2>gmap</h2>
@@ -39,7 +40,7 @@ function initMap(){
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['SECRET_KEY'] %>&callback=initMap" async defer></script>
 
-<h5>test</h5>
+
 
 <% if @article.favorited_by?(current_user) %>
     <p>
