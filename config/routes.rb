@@ -13,6 +13,7 @@ devise_for :users,skip: [:passwords], controllers: {
   get "/homes/public/about" => "homes#about", as: "about"
   get 'relationships/followings'
   get 'relationships/followers'
+  get '/article/hashtag/:name', to: "articles#hashtag"
   get 'chat/:id' => 'chats#show', as: 'chat'
   resources :chats, only: [:create]
   
