@@ -1,13 +1,12 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-3'>
-      <h2>User info</h2>
       <%= render 'public/users/info',user: @user %>
      </div>
 
      <div class="col-md-8 offset-md-1"  style="margin-top: 50px;">
 
-       <div class="card" style="width: 40rem;">
+<div class="card m-2 text-center card-warpper">
    <%= image_tag @article.get_article_image, size:'200x200' %>
   <div class="card-body">
     <h5 class="card-title"><%= @article.title %></h5>
@@ -59,7 +58,7 @@ function initMap(){
 
 
     <%= form_with model: [@article, @article_comment] do |f| %>
-      <div><%= f.text_area :comment, rows: '5', placeholder: "commnent", class: "form-control" %> </div>
+      <div><%= f.text_area :comment, rows: '5', placeholder: "comment", class: "form-control" %> </div>
       <div><%= f.submit "送信", class: "btn btn-primary" %></div>
         <% end %>
 
@@ -67,6 +66,7 @@ function initMap(){
     <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-sm btn-success" %>
     <%= link_to 'Destroy', @article, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
    <% end %>
+</div>
 </div>
 
   </div>

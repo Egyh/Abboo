@@ -1,10 +1,11 @@
 <table class='table'>
   <tr><%= image_tag user.get_profile_image, class: "rounded-circle", size:'100x100' %>
    <div class="col-2 ml-auto">
-      <%= link_to " + ", new_article_path, class: "btn btn-warning rounded-circle" %>
+
+      <%= link_to new_article_path, class: "btn btn-warning rounded-circle" do %>
+    <i class="fas fa-pencil-alt faa-ring animated"></i>      <% end %>
     </div></tr>
   <tr>
-    
     <th>follow</th>
       <th><%= link_to user.followings.count, user_followings_path(user.id) %></th>
     </tr>
@@ -24,22 +25,22 @@
 	  <th>nationality</th>
 	  <th><%= user.country_code %></th>
   </tr>
-  
+
    <tr>
 	  <th>destination</th>
 	  <th><%= user.abroad_record %></th>
   </tr>
-  
+
    <tr>
 	  <th>purpose</th>
 	  <th><%= user.purpose %></th>
   </tr>
-  
+
    <tr>
 	  <th>period</th>
 	  <th><%= user.period %></th>
   </tr>
-  
+
 </table>
 
 <div>
@@ -50,8 +51,8 @@
         <%= link_to "フォローする", user_relationships_path(user.id), method: :post, class: "btn btn-outline-success btn-block" %>
         <% end %>
         <% end %>　</div>
-        
-        <% if current_user != user %>
+
+  <% if current_user != user %>
   <%= link_to 'chatを始める', chat_path(user.id)%>
 <% end %>
 

@@ -18,7 +18,7 @@ class Public::ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all
+    @articles = Article.page(params[:page])
     @arttile = Article.new
     @user = current_user
   end

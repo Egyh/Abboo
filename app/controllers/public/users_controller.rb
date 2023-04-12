@@ -4,14 +4,14 @@ class Public::UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:update]
   
   def index
-    @users = User.all
+    @users = User.page(params[:page])
     @article = Article.new
     
   end
 
   def show
     @user = User.find(params[:id])
-    @articles = @user.articles
+    @articles = @user.articles.page(params[:page])
     @article = Article.new
   end
 
@@ -26,6 +26,15 @@ class Public::UsersController < ApplicationController
     else
       render :edit
     end
+  end
+  
+  def withdrawal
+    @user = User.find(current_user.id)
+    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+    @user.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
   end
   
   
