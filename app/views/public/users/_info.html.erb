@@ -1,63 +1,32 @@
-<table class='table'>
-  <tr><%= image_tag user.get_profile_image, class: "rounded-circle", size:'100x100' %>
-   <div class="col-2 ml-auto">
+<div class="mb-3"><%= image_tag user.get_profile_image, class: "rounded-circle", size:'100x100' %></div>
 
-      <%= link_to new_article_path, class: "btn btn-warning rounded-circle" do %>
-    <i class="fas fa-pencil-alt faa-ring animated"></i>      <% end %>
-    </div></tr>
-  <tr>
-    <th>follow</th>
-      <th><%= link_to user.followings.count, user_followings_path(user.id) %></th>
-    </tr>
-    <tr>
-      <th>followed</th>
-      <th><%= link_to user.followers.count, user_followers_path(user.id) %></th>
-        </tr>
-	  <th>name</th>
-	  <th><%= user.name %></th>
-  </tr>
-  <tr>
-	  <th>introduction</th>
-	  <th><%= user.introduction %></th>
-  </tr>
+<div style="text-align: center;">follow :<%= link_to user.followings.count, user_followings_path(user.id) %>
+    </div>
+      <div style="text-align: center;">followed :<%= link_to user.followers.count, user_followers_path(user.id) %>
+       </div>
 
- <tr>
-	  <th>nationality</th>
-	  <th><%= user.country_code %></th>
-  </tr>
+    <%= link_to new_article_path, class: "btn btn-warning rounded-circle" do %>
+    <i class="fas fa-pencil-alt faa-ring animated"></i>  
+    <% end %>
+    
+<p>
+  <a class="btn btn-primary text-center" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    View Profile
+  </a>
+ 
+</p>
 
-   <tr>
-	  <th>destination</th>
-	  <th><%= user.abroad_record %></th>
-  </tr>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+   <div>name</div>
+   <div><%= user.name %></div>
+</div>
+</div>
 
-   <tr>
-	  <th>purpose</th>
-	  <th><%= user.purpose %></th>
-  </tr>
-
-   <tr>
-	  <th>period</th>
-	  <th><%= user.period %></th>
-  </tr>
-
-</table>
-
-<div>
-　  <% if current_user != user %>
-        <% if current_user.following?(user) %>
-        <%= link_to "フォロー外す", user_relationships_path(user.id), method: :delete, class: "btn btn-outline-primary btn-block"%>
-        <% else %>
-        <%= link_to "フォローする", user_relationships_path(user.id), method: :post, class: "btn btn-outline-success btn-block" %>
-        <% end %>
-        <% end %>　</div>
-
-  <% if current_user != user %>
+ <% if current_user != user %>
   <%= link_to 'chatを始める', chat_path(user.id)%>
 <% end %>
 
-<div class='row'>
   <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
     <i class="fas fa-user-cog"></i>
   <% end %>
-</div>
