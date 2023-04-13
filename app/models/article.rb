@@ -21,25 +21,25 @@ class Article < ApplicationRecord
     favorites.exists?(user_id: user.id)
   end
   
-  #   after_create do
-  #   article = Article.find_by(id: id)
-  #   hashtags  = caption.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
-  #   article.hashtags = []
-  #   hashtags.uniq.map do |hashtag|
-  #     #ハッシュタグは先頭の'#'を外した上で保存
-  #     tag = Hashtag.find_or_create_by(name_tag: hashtag.downcase.delete('#'))
-  #     article.hashtags << tag
-  #   end
-  # end
+    after_create do
+    article = Article.find_by(id: id)
+    hashtags  = body.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+    article.hashtags = []
+    hashtags.uniq.map do |hashtag|
+      #ハッシュタグは先頭の'#'を外した上で保存
+      tag = Hashtag.find_or_create_by(name_tag: hashtag.downcase.delete('#'))
+      article.hashtags << tag
+    end
+  end
 
-  # before_update do 
-  #   article = Article.find_by(id: id)
-  #   article.hashtags.clear
-  #   hashtags = caption.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
-  #   hashtags.uniq.map do |hashtag|
-  #     tag = Hashtag.find_or_create_by(name_tag: hashtag.downcase.delete('#'))
-  #     photo.hashtags << tag
-  #   end
-  # end
+  before_update do 
+    article = Article.find_by(id: id)
+    article.hashtags.clear
+    hashtags = body.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+    hashtags.uniq.map do |hashtag|
+      tag = Hashtag.find_or_create_by(name_tag: hashtag.downcase.delete('#'))
+      photo.hashtags << tag
+    end
+  end
 
 end

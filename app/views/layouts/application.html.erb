@@ -11,10 +11,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
   </head>
 
-  <body>
+  <body style="background-color:lightcyan;">
      <%= render 'layouts/header' %>
-        <p id="notice"><%= notice %></p>
-    <%= yield %>
+     <% flash.each do |message_type, message| %>
+     <div><%= message %></div>
+     <% end %>
+     <%= yield %>
      <%= render 'layouts/footer' %>
   </body>
 </html>

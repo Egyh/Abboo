@@ -11,7 +11,7 @@
   <div class="card-body">
     <h5 class="card-title"><%= @article.title %></h5>
     <p class="card-text"><%= @article.body %></p>
-    <%#= render_with_hashtags(@article.caption) %>
+    <%= render_with_hashtags(@article.body) %>
   </div>
 
 <h2>gmap</h2>

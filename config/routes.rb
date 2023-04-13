@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   # ユーザー用
 # URL /user/sign_in ...
 devise_for :users,skip: [:passwords], controllers: {
@@ -18,17 +19,18 @@ devise_for :users,skip: [:passwords], controllers: {
   patch 'users/withdrawal' => 'users#withdrawal', as: 'withdrawal'
   get 'chat/:id' => 'chats#show', as: 'chat'
   resources :chats, only: [:create]
-  
-  
+
+
  resources :articles, only: [:new,:index,:show,:edit,:create,:destroy,:update] do
    resources :article_comments, only:[:create, :destroy]
    resource :favorites, only: [:create, :destroy]
-end
+ end
 
   resources :users, only: [:index,:show,:edit,:update] do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
+ end
 
 end
 
@@ -37,6 +39,11 @@ end
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+namespace :admin do
+   root to: "homes#top"
+   resources :articles, only: [:show, :update, :destroy]
+   resources :users, only: [:index, :show, :edit, :update]
 end
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
