@@ -1,0 +1,12 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+       <%= render 'info', user: @user %>
+       </div>
+      <div class="col-md-8 offset-md-1">
+      <%= render 'public/articles/index',articles: @articles %>
+    </div>
+
+    </div>
+  </div>
+</div>

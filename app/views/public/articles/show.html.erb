@@ -1,0 +1,74 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <%= render 'public/users/info',user: @user %>
+     </div>
+
+     <div class="col-md-8 offset-md-1"  style="margin-top: 50px;">
+
+<div class="card m-2 text-center card-warpper">
+   <%= image_tag @article.get_article_image, size:'200x200' %>
+  <div class="card-body">
+    <h5 class="card-title"><%= @article.title %></h5>
+    <p class="card-text"><%= @article.body %></p>
+    <%= render_with_hashtags(@article.body) %>
+  </div>
+
+<h2>gmap</h2>
+<div id='map'></div>
+
+<style>
+#map{
+  height: 200px;
+}
+</style>
+
+<script>
+function initMap(){
+  let map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: <%= @article.latitude %>, lng: <%= @article.longitude %>},
+  zoom: 8
+  });
+
+  var marker = new google.maps.Marker({
+          map: map,
+
+          position: {lat: <%= @article.latitude %>, lng: <%= @article.longitude %>},
+      });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['SECRET_KEY'] %>&callback=initMap" async defer></script>
+
+
+
+<% if @article.favorited_by?(current_user) %>
+    <p>
+      <%= link_to article_favorites_path(@article), method: :delete do %>
+        ♥<%= @article.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to article_favorites_path(@article), method: :post do %>
+        ♡<%= @article.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
+  <%= render "public/article_comments/comment", article: @article %>
+
+
+    <%= form_with model: [@article, @article_comment] do |f| %>
+      <div><%= f.text_area :comment, rows: '5', placeholder: "comment", class: "form-control" %> </div>
+      <div><%= f.submit "送信", class: "btn btn-primary" %></div>
+        <% end %>
+
+   <% if @article.user == current_user %>
+    <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-sm btn-success" %>
+    <%= link_to 'Destroy', @article, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
+   <% end %>
+</div>
+</div>
+
+  </div>
+   </div>
+   </div>
