@@ -15,6 +15,7 @@ devise_for :users,skip: [:passwords], controllers: {
   get 'relationships/followings'
   get 'relationships/followers'
   get '/article/hashtag/:name', to: "articles#hashtag"
+  get "search" => "searches#search"
   get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
   patch 'users/withdrawal' => 'users#withdrawal', as: 'withdrawal'
   get 'chat/:id' => 'chats#show', as: 'chat'
