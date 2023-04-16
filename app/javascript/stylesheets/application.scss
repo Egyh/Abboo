@@ -1,3 +1,64 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+.btnx-indigo{
+    text-decoration: none;
+    background: orange; 
+    color: white;
+    text-align: center;
+    
+}
+
+.btnx-indigo:hover{
+    text-decoration: none;
+    opacity: 0.8;
+    
+}
+
+.bound {
+  height: 150px
+  
+}
+/*フォント*/
+.bound span{
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top:0;
+	bottom: 0;
+	margin: auto;
+	font-size:5em;
+	font-weight:bold;
+	color:#0091EA;
+	text-align:center;
+	width:100px;
+	height:100px;
+}
+
+
+/*アニメーション指定
+文字数に合わせてleftや開始時間（2つ目のs）を設定する*/
+.bound span:nth-child(1){ left:-3.0em; animation: bound-anim 0.8s 0.0s infinite;}
+.bound span:nth-child(2){ left:-1.5em; animation: bound-anim 0.8s 0.1s infinite;}
+.bound span:nth-child(3){	left: 0.0em; animation: bound-anim 0.8s 0.2s infinite;}
+
+.bound span:nth-child(4){	left: 1.5em; animation: bound-anim 0.8s 0.3s infinite;}
+
+.bound span:nth-child(5){	left: 3.0em; animation: bound-anim 0.8s 0.4s infinite;}
+
+
+
+
+/*アニメーションキーフレーム
+小さいフォントサイズの場合はtopの数値も縮小すると飛び過ぎない*/
+@keyframes bound-anim {
+	0%,100% {top: 0;transform: scale(1);}
+	30% {top: -25%;}
+	50% {transform: scale(1);}
+	90% {top: 0;transform: scale(1.2,0.8);}
+}
+
+.top-introduction{
+  text-align:center;
+}

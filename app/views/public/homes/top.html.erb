@@ -1,11 +1,26 @@
 <div class="container">
   <div class="row">
     <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
-      <h1>welcome to Abboo</h1>
+      <h2 class="text-center">Welcome to</h2>
+      
+      
+	<p class="bound">
+		<span>A</span>
+		<span>b</span>
+		<span>b</span>
+		<span>o</span>
+		<span>o</span>
+	</p>
+	</div>
+</div>
+      <div class="top-introduction">Abboo(アビボー)で</br>
+      あなたが経験したこと、思ったことを</br>
+      共有しよう!
+      </div>
       
       <div class="btn-wrapper col-10 mx-auto">
-        <div class="row">
-          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+      <div class="row">
+          <%= link_to 'Guest', users_guest_sign_in_path, class: "btnx-indigo btn-sm btn-block mb-3 text-white sign_in" , method: :post %>
         </div>
         <div class="row">
           <%= link_to 'Log in',new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
