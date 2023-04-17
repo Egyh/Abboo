@@ -18,7 +18,7 @@ class Public::ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.page(params[:page]).per(8)
+    @articles = Article.order(created_at: :desc).page(params[:page]).per(9)
     @arttile = Article.new
     @user = current_user
   end
@@ -48,7 +48,7 @@ class Public::ArticlesController < ApplicationController
     @article.destroy
     redirect_to articles_path
   end
-  
+
   def hashtag
     @user = current_user
     @tag = Hashtag.find_by(name_tag: params[:name])

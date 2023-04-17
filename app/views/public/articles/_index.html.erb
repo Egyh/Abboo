@@ -1,22 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-12">
         <h2 class="text-center border-bottom my-2">Articles</h2>
 
-      <div style="display: flex; align-items: flex-end;">
-      </div>
-      <div class="d-md-flex flex-wrap">
+      <!--<div style="display: flex; align-items: flex-end;">-->
+      <!--</div>-->
+      <div class="row">
         <% articles.each do |article|%>
+        <div class="col-md-4">
           <div class="card m-2 text-center card-warpper">
             <%= link_to article_path(article.id) do %>
-              <%= image_tag article.get_article_image, size:'230x160', class:"card-image-top" %>
+              <%= image_tag article.get_article_image, class:"card-img-top index-img" %>
               <div class="card-body text-dark py-2 font-weight-bold ">
                 <%= link_to article.title, article_path(article.id), class: "card-title mb-2" %>
               </div>
-             <div class ="time">投稿日時：<%= l article.user.created_at, format: :short %></div> 
+             <div class ="time">投稿日時：<%= l article.user.created_at, format: :short %></div>
              <div> created by : <%= image_tag article.user.get_profile_image, class: "rounded-circle", size:'30x30' %></div>
              <% end %>
           </div>
+        </div>
         <% end %>
       </div>
       <div class="text-center">
