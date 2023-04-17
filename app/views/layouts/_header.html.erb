@@ -7,6 +7,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
+          
+          <%= render 'public/searches/search' %>
         <% if user_signed_in? %>
           <li>
             <%= link_to user_path(current_user),class: 'nav-link text-light' do %>
@@ -29,7 +31,7 @@
             <% end %>
           </li>
           
-          <%= render 'public/searches/search' %>
+         
         <% else %>
           <li>
             <%= link_to root_path,class: 'nav-link text-light' do %>
