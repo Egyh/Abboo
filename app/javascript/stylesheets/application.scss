@@ -30,6 +30,21 @@
 
 }
 
+.btnx-pink{
+	background: white;
+	color: deeppink;
+	text-align: center;
+	border: 1px solid deeppink;
+	margin: 20px 0px;
+}
+
+.btnx-pink:hover{
+    text-decoration: none;
+    color: white;
+    background: deeppink;
+    transition : 0.5s;
+}
+
 .bound {
   height: 150px
 
@@ -80,3 +95,21 @@
 	object-fit: cover;
 }
 
+
+.chat{
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.message-icon{
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  line-height: 48px;
+}
+
+.message-text{
+  display: inline-block;
+  max-width: 70%;
+  border-radius: 1rem;
+}

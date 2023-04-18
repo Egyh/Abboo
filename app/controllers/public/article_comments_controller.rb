@@ -6,14 +6,14 @@ class Public::ArticleCommentsController < ApplicationController
     comment.article_id = @article.id
     comment.save
     
-     redirect_to article_path(@article), notice: "You have updated article successfully."
+     #redirect_to article_path(@article), notice: "You have updated article successfully."
   end
   
   def destroy
     @article = Article.find(params[:article_id])
     @article_comment = ArticleComment.find(params[:id])
     @article_comment.destroy
-     redirect_to article_path(params[:article_id])
+     #redirect_to article_path(params[:article_id])
   end
   
 

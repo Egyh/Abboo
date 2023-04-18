@@ -1,0 +1,2 @@
+$('#article_comments_<%= @article.id %>').html("<%= j(render "public/article_comments/comment", article: @article) %>");
+$('#article_comment_comment').val('');

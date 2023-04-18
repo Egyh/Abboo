@@ -38,10 +38,20 @@ class Article < ApplicationRecord
     hashtags = body.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
     hashtags.uniq.map do |hashtag|
       tag = Hashtag.find_or_create_by(name_tag: hashtag.downcase.delete('#'))
-      photo.hashtags << tag
+      article.hashtags << tag
     end
   end
 
+  def get_latitude
+    return 0 if self.latitude == nil
+    return self.latitude
+  end
+
+  def get_longitude
+    return 0 if self.longitude == nil
+    return self.longitude
+  end
+  
  def self.looks(word)
     # if search == "perfect_match"
     #   @article = Article.where("title LIKE?","#{word}")
