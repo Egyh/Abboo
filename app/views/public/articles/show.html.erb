@@ -7,14 +7,14 @@
      <div class="col-md-8 offset-md-1"  style="margin-top: 50px;">
 
 <div class="card m-2 text-center card-warpper">
-   <%= image_tag @article.get_article_image, size:'200x200' %>
+   <%= image_tag @article.get_article_image, class:"card-img-top" %>
   <div class="card-body">
     <h5 class="card-title"><%= @article.title %></h5>
     <p class="card-text"><%= @article.body %></p>
     <%= render_with_hashtags(@article.body) %>
   </div>
 
-<h2>gmap</h2>
+<h2>ロケーション</h2>
 <div id='map'></div>
 
 <style>
