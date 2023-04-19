@@ -96,20 +96,60 @@
 }
 
 
-.chat{
-  max-width: 600px;
-  margin: 0 auto;
+
+/* FAQ like message */
+
+.faq_area {
+  margin: 0 auto ;
 }
 
-.message-icon{
-  width: 48px;
-  height: 48px;
-  text-align: center;
-  line-height: 48px;
+.faq_area div {
+ width: 100%;
+  margin: 0 auto 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.message-text{
-  display: inline-block;
-  max-width: 70%;
-  border-radius: 1rem;
+.faq_area dt,
+.faq_area dd {
+  min-width:80px;
+  padding: 10px 15px;
+  color: #fff;
+  border-radius: 80px;
+  background: red;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.faq_area div dt {
+  margin-bottom: 20px;
+  background: #ff1481;
+}
+
+.faq_area dt:before {
+  content: "";
+  border: 10px solid transparent;
+  border-right: 20px solid #ff1481;
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.faq_area div dd {
+  margin-top: 20px;
+  background: #0096e5;
+}
+
+.faq_area dd:after {
+  content: "";
+  border: 10px solid transparent;
+  border-left: 20px solid #0096e5;
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
 }

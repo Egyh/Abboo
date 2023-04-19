@@ -2,11 +2,10 @@
 
           <% article.article_comments.each do |article_comment| %>
           <tr>
-          <td> <%= image_tag article_comment.user.get_profile_image, size:'50x50' %></td>
-          <td><%= article_comment.user.name %></td>
+          <td> <%= image_tag article_comment.user.get_profile_image, size:'50x50', class: "rounded-circle" %></td>
           <td><%= article_comment.comment %></td>
           <% if article_comment.user == current_user %>
-          <td><%= link_to "destroy", article_article_comment_path(article_comment.article, article_comment), remote: true, method: :delete, class: "btn btn-danger btn-sm" %></td>
+          <td><%= link_to "コメント削除", article_article_comment_path(article_comment.article, article_comment), remote: true, method: :delete, class: "btn btn-danger btn-sm" %></td>
           </tr>
           <% end %>
           <% end %>

@@ -11,7 +11,7 @@
       <tr>
         <td><%= image_tag user.get_profile_image, class: "rounded-circle", size:'30x30' %></td>
         <td><%= user.name %></td>
-        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'このユーザーをみる', user, class:"btn btn-info" %></td>
     <% end %>
   </tbody>
 </table>

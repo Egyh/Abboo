@@ -38,7 +38,12 @@ class Public::UsersController < ApplicationController
     redirect_to root_path
   end
   
-  
+  def favorites
+     @user =  User.find(params[:id])
+      likes = Favorite.where(user_id: @user.id).pluck(:article_id)
+    @favorite_articles = Article.find(likes)
+  end
+
   
   def ensure_correct_user
     @user = User.find(params[:id])

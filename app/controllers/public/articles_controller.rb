@@ -37,7 +37,7 @@ class Public::ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
-      redirect_to article_path(@article), notice: "You have updated book successfully."
+      redirect_to article_path(@article), notice: "You have updated article successfully."
     else
       render "edit"
     end

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+
+
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
@@ -28,10 +29,13 @@ devise_for :users,skip: [:passwords], controllers: {
 
  resources :articles, only: [:new,:index,:show,:edit,:create,:destroy,:update] do
    resources :article_comments, only:[:create, :destroy]
-   resource :favorites, only: [:create, :destroy]
+   resource :favorites, only: [:create, :destroy,]
  end
 
   resources :users, only: [:index,:show,:edit,:update] do
+     member do
+      get :favorites
+    end
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
@@ -47,7 +51,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
 namespace :admin do
    root to: "homes#top"
-   resources :articles, only: [:show, :update, :destroy]
+   resources :articles, only: [:index, :show, :edit, :update, :destroy]
    resources :users, only: [:index, :show, :edit, :update]
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
