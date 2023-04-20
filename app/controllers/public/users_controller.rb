@@ -41,7 +41,7 @@ class Public::UsersController < ApplicationController
   def favorites
      @user =  User.find(params[:id])
       likes = Favorite.where(user_id: @user.id).pluck(:article_id)
-    @favorite_articles = Article.find(likes)
+    @favorite_articles = Article.order(created_at: :desc).find(likes)
   end
 
   
