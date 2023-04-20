@@ -1,5 +1,3 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
 
  <h4><span class="bg-light bg-gradient">登録ユーザー</span></h4>
 <table class='table'>
@@ -8,6 +6,7 @@
       <th>image</th>
       <th>name</th>
       <th>status</th>
+      <th>edit</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,7 +22,7 @@
             無効
           <% end %>
         </td>
-        <td><%= link_to 'Edit', edit_admin_user_path(user.id) %></td>
+        <td><%= link_to 'ユーザー編集', edit_admin_user_path(user.id), class:"btn btn-info" %></td>
     <% end %>
   </tbody>
 </table>

@@ -51,7 +51,7 @@ class Article < ApplicationRecord
     return 0 if self.longitude == nil
     return self.longitude
   end
-  
+
  def self.looks(word)
     # if search == "perfect_match"
     #   @article = Article.where("title LIKE?","#{word}")

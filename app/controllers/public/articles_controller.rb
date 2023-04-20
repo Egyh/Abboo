@@ -52,7 +52,9 @@ class Public::ArticlesController < ApplicationController
   def hashtag
     @user = current_user
     @tag = Hashtag.find_by(name_tag: params[:name])
-    @articles = @tag.articles
+    @article = @tag.articles
+    @articles = Article.order(created_at: :desc).page(params[:page]).per(9)
+
   end
 
   private

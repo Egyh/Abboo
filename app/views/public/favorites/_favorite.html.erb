@@ -2,7 +2,7 @@
 
       <%= link_to article_favorites_path(article), method: :delete, remote: true do %>
        <i class="fas fa-heart"style="color: red;"></i>
-    　　<%= article.favorites.count %> いいね
+        <%= article.favorites.count %> いいね
       <% end %>
     <% else %>
       <%= link_to article_favorites_path(article), method: :post, remote: true do %>

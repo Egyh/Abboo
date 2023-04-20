@@ -8,9 +8,9 @@
    <div><%= user.name %></div>
 </div>
 
-<div class="text-center my-2">follow : <%= link_to user.followings.count, user_followings_path(user.id) %>
+<div class="text-center my-2">フォロー : <%= link_to user.followings.count, user_followings_path(user.id) %>
     </div>
-      <div class="text-center my-2">followed : <%= link_to user.followers.count, user_followers_path(user.id) %>
+      <div class="text-center my-2">フォロワー : <%= link_to user.followers.count, user_followers_path(user.id) %>
        </div>
 
   <div class="text-center md-2 btn btn-outline-primary btn-block" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -22,7 +22,7 @@
    <div class="border-bottom">自己紹介</div>
    <div><%= user.introduction %></div>
    <div class="border-bottom pt-2">国籍</div>
-   <div><%= user.country_code %></div>
+   <div><%= user.country.name %></div>
    <div class="border-bottom pt-2">留学先</div>
    <div><%= user.abroad_record %></div>
     <div class="border-bottom pt-2">目的</div>
@@ -41,7 +41,10 @@
         <% end %>
         <% end %>
 
- <%= link_to "いいねした投稿", favorites_user_path(user) %>
+ <%= link_to favorites_user_path(user), class: "btnx-orangered btn-sm btn-block" do %>
+  <i class="fas fa-heart faa-tada animated" ></i></i> いいね
+  <% end %>
+
 
 <div class="new_article mb-2">
     <%= link_to new_article_path, class: "btn btn-outline-warning btn-block" do %>

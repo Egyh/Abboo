@@ -39,9 +39,11 @@ class Public::UsersController < ApplicationController
   end
   
   def favorites
-     @user =  User.find(params[:id])
+    @user =  User.find(params[:id])
       likes = Favorite.where(user_id: @user.id).pluck(:article_id)
     @favorite_articles = Article.order(created_at: :desc).find(likes)
+    @articles = Article.order(created_at: :desc).page(params[:page]).per(9)
+
   end
 
   

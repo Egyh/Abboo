@@ -1,5 +1,8 @@
 class Admin::HomesController < ApplicationController
 
-      def top
-      end
+def top
+    @articles = Article.all
+
+end
+
 end

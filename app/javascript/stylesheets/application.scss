@@ -36,12 +36,30 @@
 	text-align: center;
 	border: 1px solid deeppink;
 	margin: 20px 0px;
+	line-height: 2;
 }
 
 .btnx-pink:hover{
     text-decoration: none;
     color: white;
     background: deeppink;
+    transition : 0.5s;
+}
+
+.btnx-orangered{
+  background: white;
+	color: orangered;
+	text-align: center;
+	border: 1px solid orangered;
+	margin: 10px 0px;
+	line-height: 2;
+
+}
+
+.btnx-orangered:hover{
+    text-decoration: none;
+    color: white;
+    background: orangered;
     transition : 0.5s;
 }
 
@@ -152,4 +170,8 @@
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+
+.pagination {
+  justify-content: center;
 }
