@@ -16,9 +16,7 @@
 
   <body style="background-color:white;">
      <%= render 'layouts/header' %>
-     <% flash.each do |message_type, message| %>
-     <div class="text-center"><%= message %></div>
-     <% end %>
+     <%= render 'layouts/flash' %>
      <%= yield %>
      <%= render 'layouts/footer' %>
   </body>

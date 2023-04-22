@@ -3,6 +3,7 @@
     <tr>
       <th>image</th>
       <th>name</th>
+      <th>nation</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -11,7 +12,11 @@
       <tr>
         <td><%= image_tag user.get_profile_image, class: "rounded-circle", size:'30x30' %></td>
         <td><%= user.name %></td>
+        <td><%= user.country.name %></td>
         <td><%= link_to 'このユーザーをみる', user, class:"btn btn-info" %></td>
     <% end %>
   </tbody>
 </table>
+ <div class="paginattion">
+        <%= paginate @users %>
+  </div>

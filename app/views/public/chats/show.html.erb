@@ -19,7 +19,7 @@
                 <% end %>
                 </div>
               <% end %>
-                  <%= form_with model: @chat do |f| %>
+                  <%= form_with model: @chat, do |f| %>
                 <%= f.text_field :message %>
                 <%= f.hidden_field :room_id %>
                 <%= f.submit '送信',class: "btn btn-success" %>

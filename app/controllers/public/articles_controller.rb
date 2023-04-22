@@ -11,9 +11,9 @@ class Public::ArticlesController < ApplicationController
     if @article.save
       redirect_to article_path(@article), notice: "You have created article successfully."
     else
-      @articles = Article.all
+      @articles = Article.order(created_at: :desc).page(params[:page]).per(9)
       @user = current_user
-      render 'index'
+      render 'new'
     end
   end
 

@@ -54,7 +54,7 @@
 
 
 
- <% if current_user != user %>
+ <% if current_user.following?(user) %>
   <%= link_to 'Chat', chat_path(user.id), class: "btnx-pink btn-sm btn-block"%>
 <% end %>
 
