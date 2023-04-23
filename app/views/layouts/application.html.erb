@@ -6,16 +6,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+<!--Google APIによる影響でturbolinksをoffにする設定-->
+    <%#= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application'%>
+    <%= javascript_pack_tag 'application' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
   </head>
 
-  <body style="background-color:lightcyan;">
+  <body style="background-color:white;">
      <%= render 'layouts/header' %>
-     <% flash.each do |message_type, message| %>
-     <div><%= message %></div>
-     <% end %>
+     <%= render 'layouts/flash' %>
      <%= yield %>
      <%= render 'layouts/footer' %>
   </body>

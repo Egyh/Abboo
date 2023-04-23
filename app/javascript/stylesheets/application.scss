@@ -1,3 +1,177 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+
+.top-introduction{
+  text-align: center;
+  color: deeppink;
+  font-weight: bold;
+  font-size: 40px;
+  margin-bottom: 70px;
+}
+
+.background-img{
+	background-image: url('../images/background.jpg');
+	background-size: cover;
+	height: 100vh;
+}
+
+.btnx-indigo{
+    text-decoration: none;
+    background: orange;
+    color: white;
+    text-align: center;
+
+}
+
+.btnx-indigo:hover{
+    text-decoration: none;
+    background: #ff8c00;
+
+}
+
+.btnx-pink{
+	background: white;
+	color: deeppink;
+	text-align: center;
+	border: 1px solid deeppink;
+	margin: 20px 0px;
+	line-height: 2;
+}
+
+.btnx-pink:hover{
+    text-decoration: none;
+    color: white;
+    background: deeppink;
+    transition : 0.5s;
+}
+
+.btnx-orangered{
+  background: white;
+	color: orangered;
+	text-align: center;
+	border: 1px solid orangered;
+	margin: 10px 0px;
+	line-height: 2;
+
+}
+
+.btnx-orangered:hover{
+    text-decoration: none;
+    color: white;
+    background: orangered;
+    transition : 0.5s;
+}
+
+.bound {
+  height: 150px
+
+}
+/*フォント*/
+.bound span{
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top:0;
+	bottom: 0;
+	margin: auto;
+	font-size:5em;
+	font-weight:bold;
+	color:#0091EA;
+	text-align:center;
+	width:100px;
+	height:100px;
+}
+
+
+/*アニメーション指定
+文字数に合わせてleftや開始時間（2つ目のs）を設定する*/
+.bound span:nth-child(1){ left:-3.0em; animation: bound-anim 0.8s 0.0s infinite;}
+.bound span:nth-child(2){ left:-1.5em; animation: bound-anim 0.8s 0.1s infinite;}
+.bound span:nth-child(3){	left: 0.0em; animation: bound-anim 0.8s 0.2s infinite;}
+
+.bound span:nth-child(4){	left: 1.5em; animation: bound-anim 0.8s 0.3s infinite;}
+
+.bound span:nth-child(5){	left: 3.0em; animation: bound-anim 0.8s 0.4s infinite;}
+
+
+
+
+/*アニメーションキーフレーム
+小さいフォントサイズの場合はtopの数値も縮小すると飛び過ぎない*/
+@keyframes bound-anim {
+	0%,100% {top: 0;transform: scale(1);}
+	30% {top: -25%;}
+	50% {transform: scale(1);}
+	90% {top: 0;transform: scale(1.2,0.8);}
+}
+
+
+.index-img{
+	height: 200px;
+	object-fit: cover;
+}
+
+
+
+/* FAQ like message */
+
+.faq_area {
+  margin: 0 auto ;
+}
+
+.faq_area div {
+ width: 100%;
+  margin: 0 auto 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.faq_area dt,
+.faq_area dd {
+  min-width:80px;
+  padding: 10px 15px;
+  color: #fff;
+  border-radius: 80px;
+  background: #0096e5;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.faq_area div dt {
+  margin-bottom: 20px;
+  background: #ff1481;
+}
+
+.faq_area dt:before {
+  content: "";
+  border: 10px solid transparent;
+  border-right: 20px solid #ff1481;
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.faq_area div dd {
+  margin-top: 20px;
+  background: #0096e5;
+}
+
+.faq_area dd:after {
+  content: "";
+  border: 10px solid transparent;
+  border-left: 20px solid #0096e5;
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.pagination {
+  justify-content: center;
+}

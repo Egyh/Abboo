@@ -1,22 +1,30 @@
-<%= form_with model: @chat do |f| %>
-    <%= f.text_field :message %>
-    <%= f.hidden_field :room_id %>
-    <%= f.submit %>
-<% end %>
-<table>
-    <thead>
-        <tr>
-            <td>投稿者名</td>
-            <td>投稿内容</td>
-        </tr>
-    </thead>
-    <tbody>
-        <% @chats.each do |chat| %>
-            <tr>
-                <td><%= chat.user.name %></td>
-                <td><%= chat.message %></td>
-            </tr>
-        <% end %>
-    </tbody>
-</table>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <%= render 'public/users/info',user: @user %>
+     </div>
 
+      <div class="col-md-8 offset-md-1 text-center mt-2 " >
+          <h2 class="border-bottom">Messages</h2>
+
+          <dl class="faq_area">
+            <% @chats.each do |chat| %>
+
+              <div>
+              　<% if current_user != chat.user %>
+               <dt><%= chat.message %>
+                </dt>
+                <% else%>
+                <dd><%= chat.message %></dd>
+                <% end %>
+                </div>
+              <% end %>
+                <%= form_with model: @chat do |f| %>
+                <%= f.text_field :message %>
+                <%= f.hidden_field :room_id %>
+                <%= f.submit '送信',class: "btn btn-success" %>
+            <% end %>
+          </dl>
+       </div>
+     </div>
+  </div>

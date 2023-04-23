@@ -1,23 +1,27 @@
+<%= render 'layouts/errors', obj: @article %>
+
 <%= form_with model: @article,local:true do |f| %>
 
-  <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control article_title' %>
+  <div class="form-group pt-3">
+    <%= f.label :記事タイトル %>
+    <%= f.text_field :title, class: 'form-control article_title', placeholder: "タイトルを入力してください" %>
   </div>
   <div class="form-group">
-    <%= f.label :body %>
-    <%= f.text_area :body, class: 'form-control article_body' %>
+    <%= f.label :内容 %>
+    <%= f.text_area :body, class: 'form-control article_body',placeholder: "内容を入力してください" %>
   </div>
   <!-- 追加部分 -->
    <div class="form-group">
-  <%= f.label :image %>
+  <%= f.label :画像 %>
   <%= f.file_field :article_image, accept: "image/*" %>
   </div>
 
-  <h2>gmap</h2>
+  <div class="location">ロケーション</div>
+  <div class="gmap mb-3">
   <input id="address" type="textbox" value="">
   <%= f.hidden_field :latitude %>
   <%= f.hidden_field :longitude %>
+
 
 <!-- buttonをクリックしたらcodeAddressを実行　-->
 <input type="button" value="search" onclick="codeAddress()">
@@ -58,7 +62,7 @@ function codeAddress(){
 　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
       var marker = new google.maps.Marker({
           map: map,
-          
+
           position: results[0].geometry.location
       });
     } else {
@@ -69,9 +73,9 @@ function codeAddress(){
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['SECRET_KEY'] %>&callback=initMap" async defer></script>
-
+</div>
   <div class="form-group">
-    <%= f.submit 'submit', class: "btn btn-success" %>
+    <%= f.submit '投稿する', class: "btn btn-success" %>
   </div>
 
 <% end %>

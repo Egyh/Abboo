@@ -1,20 +1,22 @@
+<%= render 'layouts/errors', obj: @article %>
+
 <div class='container'>
   <div class='row'>
     <div class='col-md-3'>
       <%= render 'public/users/info',user: @user %>
      </div>
 
-     <div class="col-md-8 offset-md-1"  style="margin-top: 50px;">
-
-<div class="card m-2 text-center card-warpper">
-   <%= image_tag @article.get_article_image, size:'200x200' %>
+     <div class="col-md-8 offset-md-1"  style="margin-top: 10px;">
+<p class="text-center border-bottom">詳細画面</p>
+<div class="card m-2 text-center card-warpper　">
+   <%= image_tag @article.get_article_image, size:'300x300', class:"d-block mx-auto" %>
   <div class="card-body">
-    <h5 class="card-title"><%= @article.title %></h5>
-    <p class="card-text"><%= @article.body %></p>
+    <h2 class="card-title "><%= @article.title %></h2>
+    <!--<p class="card-text"><%#= @article.body %></p>-->
     <%= render_with_hashtags(@article.body) %>
   </div>
 
-<h2>gmap</h2>
+<h4>ロケーション</h4>
 <div id='map'></div>
 
 <style>
@@ -26,47 +28,44 @@
 <script>
 function initMap(){
   let map = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: <%= @article.latitude %>, lng: <%= @article.longitude %>},
+  center: {lat: <%= @article.get_latitude %>, lng: <%= @article.get_longitude %>},
   zoom: 8
   });
 
   var marker = new google.maps.Marker({
           map: map,
 
-          position: {lat: <%= @article.latitude %>, lng: <%= @article.longitude %>},
+          position: {lat: <%= @article.get_latitude %>, lng: <%= @article.get_longitude %>},
       });
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['SECRET_KEY'] %>&callback=initMap" async defer></script>
 
 
+<div class="favorites mt-2">
+<div id="favorite_buttons_<%= @article.id %>">
+　<%= render "public/favorites/favorite", article: @article %>
+　　</div>
+　　</div>
 
-<% if @article.favorited_by?(current_user) %>
-    <p>
-      <%= link_to article_favorites_path(@article), method: :delete do %>
-        ♥<%= @article.favorites.count %> いいね
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to article_favorites_path(@article), method: :post do %>
-        ♡<%= @article.favorites.count %> いいね
-      <% end %>
-    </p>
-  <% end %>
+<div class="comment">
+  <p class="border-bottom">comment</p>
+<div id="article_comments_<%= @article.id %>">
   <%= render "public/article_comments/comment", article: @article %>
+  </div>
+  </div>
 
 
-    <%= form_with model: [@article, @article_comment] do |f| %>
+    <%= form_with model: [@article, @article_comment], local: false do |f| %>
       <div><%= f.text_area :comment, rows: '5', placeholder: "comment", class: "form-control" %> </div>
       <div><%= f.submit "送信", class: "btn btn-primary" %></div>
         <% end %>
 
    <% if @article.user == current_user %>
-    <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-sm btn-success" %>
-    <%= link_to 'Destroy', @article, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
+    <%= link_to '編集', edit_article_path(@article), class: "btn btn-sm btn-success" %>
+    <%= link_to '削除', @article, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
    <% end %>
-</div>
+
 </div>
 
   </div>

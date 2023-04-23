@@ -11,14 +11,14 @@ class Public::ArticlesController < ApplicationController
     if @article.save
       redirect_to article_path(@article), notice: "You have created article successfully."
     else
-      @articles = Article.all
+      @articles = Article.order(created_at: :desc).page(params[:page]).per(9)
       @user = current_user
-      render 'index'
+      render "new"
     end
   end
 
   def index
-    @articles = Article.page(params[:page])
+    @articles = Article.order(created_at: :desc).page(params[:page]).per(9)
     @arttile = Article.new
     @user = current_user
   end
@@ -37,7 +37,7 @@ class Public::ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
-      redirect_to article_path(@article), notice: "You have updated book successfully."
+      redirect_to article_path(@article), notice: "You have updated article successfully."
     else
       render "edit"
     end
@@ -48,11 +48,13 @@ class Public::ArticlesController < ApplicationController
     @article.destroy
     redirect_to articles_path
   end
-  
+
   def hashtag
     @user = current_user
     @tag = Hashtag.find_by(name_tag: params[:name])
-    @articles = @tag.articles
+    @article = @tag.articles
+    @articles = Article.order(created_at: :desc).page(params[:page]).per(9)
+
   end
 
   private

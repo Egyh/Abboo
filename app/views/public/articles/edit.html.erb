@@ -1,3 +1,5 @@
+<%= render 'layouts/errors', obj: @article %>
+
 <%= form_with model: @article,local:true do |f| %>
 
   <div class="form-group">
@@ -13,32 +15,63 @@
   <%= f.label :image %>
   <%= f.file_field :article_image, accept: "image/*" %>
   </div>
-  
-<h2>gmap</h2>
+
+  <div>ロケーション</div>
+  <input id="address" type="textbox" value="">
+  <%= f.hidden_field :latitude %>
+  <%= f.hidden_field :longitude %>
+
+<!-- buttonをクリックしたらcodeAddressを実行　-->
+<input type="button" value="search" onclick="codeAddress()">
 <div id='map'></div>
 
 <style>
 #map{
-  height: 200px;
+  height: 400px;
 }
 </style>
 
 <script>
+let map
+let geocoder
+
 function initMap(){
-  let map = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: <%= @article.latitude %>, lng: <%= @article.longitude %>},
+  // geocoderを初期化
+  geocoder = new google.maps.Geocoder()
+
+  map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: <%= @article.get_latitude %>, lng: <%= @article.get_longitude %>},
   zoom: 8
   });
-
-  var marker = new google.maps.Marker({
-          map: map,
-
-          position: {lat: <%= @article.latitude %>, lng: <%= @article.longitude %>},
-      });
 }
+
+function codeAddress(){
+  // 入力を取得
+  let inputAddress = document.getElementById('address').value;
+
+  // geocodingしたあとmapを移動
+  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+    if (status == 'OK') {
+　　　　　　　　　　　　// map.setCenterで地図が移動
+　　　console.log(results[0])
+      map.setCenter(results[0].geometry.location);
+      document.getElementById("article_latitude").value = results[0].geometry.location.lat();
+      document.getElementById("article_longitude").value = results[0].geometry.location.lng();
+
+　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['SECRET_KEY'] %>&callback=initMap" async defer></script>
-  
+
   <div class="form-group">
     <%= f.submit 'submit', class: "btn btn-success" %>
   </div>
