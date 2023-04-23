@@ -19,8 +19,7 @@ class Public::ArticleCommentsController < ApplicationController
 
   
   private
-
-  def article_comment_params
-    params.require(:article_comment).permit(:comment)
-  end
+    def article_comment_params
+      params.require(:article_comment).permit(:comment)
+    end
 end

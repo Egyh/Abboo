@@ -1,7 +1,7 @@
 <div class="card my-5" style="width: 15rem;">
   <div class="card-body">
 
-<div class="text-center my-3"><%= image_tag user.get_profile_image, class: "rounded-circle", size:'100x100' %></div>
+<div class="text-center my-3"><%= image_tag user.get_profile_image, class: "rounded-circle border border-dark", size:'100x100' %></div>
 
  <div class="text-center my-2">
    <div>name</div>
@@ -14,7 +14,7 @@
        </div>
 
   <div class="text-center md-2 btn btn-outline-primary btn-block" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    View Profile
+    プロフィール
   </div>
   <div class="text-center">
 <div class="collapse" id="collapseExample">
@@ -39,7 +39,7 @@
         <% else %>
         <%= link_to "フォローする", user_relationships_path(user.id), method: :post, class: "btn btn-outline-success btn-block" %>
         <% end %>
-        <% end %>
+     <% end %>
 
  <%= link_to favorites_user_path(user), class: "btnx-orangered btn-sm btn-block" do %>
   <i class="fas fa-heart faa-tada animated" ></i></i> いいね

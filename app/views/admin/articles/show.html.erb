@@ -1,7 +1,6 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-3'>
-      <%#= render 'public/users/info',user: @user %>
      </div>
 
      <div class="col-md-8 offset-md-1"  style="margin-top: 10px;">
@@ -10,7 +9,6 @@
    <%= image_tag @article.get_article_image, size:'300x300', class:"d-block mx-auto" %>
   <div class="card-body">
     <h2 class="card-title "><%= @article.title %></h2>
-    <!--<p class="card-text"><%#= @article.body %></p>-->
     <%= render_with_hashtags(@article.body) %>
   </div>
 

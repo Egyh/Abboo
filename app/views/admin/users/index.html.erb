@@ -3,10 +3,10 @@
 <table class='table'>
   <thead>
     <tr>
-      <th>image</th>
-      <th>name</th>
-      <th>status</th>
-      <th>edit</th>
+      <th>アイコン</th>
+      <th>名前</th>
+      <th>ステータス</th>
+      <th>編集</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,3 +26,6 @@
     <% end %>
   </tbody>
 </table>
+ <div class="paginattion">
+        <%= paginate @users %>
+  </div>

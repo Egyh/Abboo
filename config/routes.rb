@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   devise_scope :user do
-    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+    post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
   end
 
 
@@ -10,20 +10,20 @@ Rails.application.routes.draw do
 # URL /user/sign_in ...
 devise_for :users,skip: [:passwords], controllers: {
   registrations: "public/registrations",
-  sessions: 'public/sessions'
+  sessions: "public/sessions"
 }
 
 
  scope module: :public do
   root to: "homes#top"
-  get "/homes/public/about" => "homes#about", as: "about"
-  get 'relationships/followings'
-  get 'relationships/followers'
-  get '/article/hashtag/:name', to: "articles#hashtag"
+  get "/home/about" => "homes#about", as: "about"
+  get "relationships/followings"
+  get "relationships/followers"
+  get "/article/hashtag/:name", to: "articles#hashtag"
   get "search" => "searches#search"
-  get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
-  patch 'users/withdrawal' => 'users#withdrawal', as: 'withdrawal'
-  get 'chat/:id' => 'chats#show', as: 'chat'
+  get "users/unsubscribe" => "users#unsubscribe", as: "unsubscribe"
+  patch "users/withdrawal" => "users#withdrawal", as: "withdrawal"
+  get "chat/:id" => "chats#show", as: "chat"
   resources :chats, only: [:create]
 
 
@@ -37,8 +37,8 @@ devise_for :users,skip: [:passwords], controllers: {
       get :favorites
     end
     resource :relationships, only: [:create, :destroy]
-    get 'followings' => 'relationships#followings', as: 'followings'
-    get 'followers' => 'relationships#followers', as: 'followers'
+    get "followings" => "relationships#followings", as: "followings"
+    get "followers" => "relationships#followers", as: "followers"
  end
 
 end

@@ -13,7 +13,7 @@ class Public::ArticlesController < ApplicationController
     else
       @articles = Article.order(created_at: :desc).page(params[:page]).per(9)
       @user = current_user
-      render 'new'
+      render "new"
     end
   end
 

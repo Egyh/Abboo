@@ -14,7 +14,7 @@ class Article < ApplicationRecord
 
 
   def get_article_image
-    (article_image.attached?) ? article_image : 'no_image.jpg'
+    (article_image.attached?) ? article_image : "no_image.jpg"
   end
 
   def favorited_by?(user)
@@ -27,7 +27,7 @@ class Article < ApplicationRecord
     article.hashtags = []
     hashtags.uniq.map do |hashtag|
       #ハッシュタグは先頭の'#'を外した上で保存
-      tag = Hashtag.find_or_create_by(name_tag: hashtag.downcase.delete('#'))
+      tag = Hashtag.find_or_create_by(name_tag: hashtag.downcase.delete("#"))
       article.hashtags << tag
     end
   end
@@ -37,7 +37,7 @@ class Article < ApplicationRecord
     article.hashtags.clear
     hashtags = body.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
     hashtags.uniq.map do |hashtag|
-      tag = Hashtag.find_or_create_by(name_tag: hashtag.downcase.delete('#'))
+      tag = Hashtag.find_or_create_by(name_tag: hashtag.downcase.delete("#"))
       article.hashtags << tag
     end
   end
