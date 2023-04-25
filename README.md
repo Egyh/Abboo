@@ -29,9 +29,12 @@
 - 帰国後に自分自身の思い出を振り返りたい時
 
 ## 設計書
-- ER図 https://drive.google.com/drive/folders/1MBASQ9s1RmACJ_TVywj8DhvVNRrF8wsW
-- テーブル定義書 https://docs.google.com/spreadsheets/d/1IH24ivsMN3K5IuTqIck5Dib8E2nrIgbj4IEdYAhRxXA/edit#gid=1992650199
-- アプリケーション詳細設計 https://docs.google.com/spreadsheets/d/1To6zpJJZEtUMiL__Gu-oCVYSQMWTgzg2w4odZu5Jxi0/edit#gid=549108681
+- ER図
+![abboo_er](https://user-images.githubusercontent.com/124222570/234266764-d0f6eb6c-4d88-4cd4-b097-b87e5cde7007.png)
+- テーブル定義書
+  https://docs.google.com/spreadsheets/d/1IH24ivsMN3K5IuTqIck5Dib8E2nrIgbj4IEdYAhRxXA/edit#gid=1992650199
+- アプリケーション詳細設計
+  https://docs.google.com/spreadsheets/d/1To6zpJJZEtUMiL__Gu-oCVYSQMWTgzg2w4odZu5Jxi0/edit#gid=549108681
 
 ## 開発環境
 - OS：Linux(CentOS)
