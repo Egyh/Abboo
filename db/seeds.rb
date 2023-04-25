@@ -32,7 +32,12 @@ Article.create!(
     {title: "大自然のアメリカ", article_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample2.jpg"), filename:"sample2.jpg"), body: "絵の中にいるみたい・・・", latitude:"35.9881301", longitude:"-110.5690768" ,user_id: users[1].id },
     {title: "パスタ専門店", article_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample3.jpg"), filename:"sample3.jpg"), body: "パスタ好きにはたまらない場所#サンプルテスト", latitude:"44.446948", longitude:"8.80826" ,user_id: users[2].id },
     {title: "KYOTO", article_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample4.jpg"), filename:"sample4.jpg"), body: "what a beautiful place", latitude:"34.9957302", longitude:"135.7783725" ,user_id: users[3].id },
-    {title: "初めての火鍋", article_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample5.jpg"), filename:"sample5.jpg"), body: "楽しみ～", latitude:"22.4025615", longitude:"114.2424928" ,user_id: users[4].id },
-    {title: "映画のロケ地", article_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample6.jpg"), filename:"sample6.jpg"), body: "分った人はコメントを！#サンプルテスト", latitude:"-43.8465406", longitude:"173.9188548" ,user_id: users[5].id },
+    {title: "以后我要吃火锅", article_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample5.jpg"), filename:"sample5.jpg"), body: "楽しみ～", latitude:"22.4025615", longitude:"114.2424928" ,user_id: users[4].id },
+    {title: "エクアドル", article_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample6.jpg"), filename:"sample6.jpg"), body: "鮮やかな民族衣装#サンプルテスト", latitude:"-2.4160298", longitude:"-78.5127067" ,user_id: users[5].id },
+    {title: "ホームシックの対処方法", body: "何かいい方法があれば教えてください～",user_id: users[6].id },
+    {title: "やっと到着!!!", article_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample7.jpg"), filename:"sample7.jpg"), body: "長旅つかれた(笑)#サンプルテスト", latitude:"55.8844161", longitude:"-3.8062872" ,user_id: users[7].id },
+    {title: "食べ物？？？", article_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample8.jpg"), filename:"sample8.jpg"), body: "ベトナムではスープらしい", latitude:"10.7760423", longitude:"106.6740722" ,user_id: users[8].id },
+    {title: "面白い勉強方???", body: "何かいい方法があれば教えてください～",user_id: users[1].id },
+    {title: "一人旅", article_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample9.jpg"), filename:"sample9.jpg"), body: "思い出に一人旅", latitude:"-33.8567844", longitude:"151.2127218" ,user_id: users[9].id },
   ]
 )

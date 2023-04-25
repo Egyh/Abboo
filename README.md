@@ -29,7 +29,9 @@
 - 帰国後に自分自身の思い出を振り返りたい時
 
 ## 設計書
-<...>
+- ER図 https://drive.google.com/drive/folders/1MBASQ9s1RmACJ_TVywj8DhvVNRrF8wsW
+- テーブル定義書 https://docs.google.com/spreadsheets/d/1IH24ivsMN3K5IuTqIck5Dib8E2nrIgbj4IEdYAhRxXA/edit#gid=1992650199
+- アプリケーション詳細設計 https://docs.google.com/spreadsheets/d/1To6zpJJZEtUMiL__Gu-oCVYSQMWTgzg2w4odZu5Jxi0/edit#gid=549108681
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -38,6 +40,3 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
-## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
