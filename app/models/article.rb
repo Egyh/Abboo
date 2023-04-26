@@ -43,12 +43,12 @@ class Article < ApplicationRecord
   end
 
   def get_latitude
-    return 0 if self.latitude == nil
+    return 35.6877479 if self.latitude == nil
     return self.latitude
   end
 
   def get_longitude
-    return 0 if self.longitude == nil
+    return 139.7676993 if self.longitude == nil
     return self.longitude
   end
 

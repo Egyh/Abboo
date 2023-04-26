@@ -1,6 +1,6 @@
 class ArticleComment < ApplicationRecord
 
-  validates :message,presence:true
+  validates :comment, presence:true
 
   belongs_to :user
   belongs_to :article

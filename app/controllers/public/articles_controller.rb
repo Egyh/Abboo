@@ -9,7 +9,7 @@ class Public::ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user_id = current_user.id
     if @article.save
-      redirect_to article_path(@article), notice: "You have created article successfully."
+      redirect_to article_path(@article), notice: "投稿に成功しました"
     else
       @articles = Article.order(created_at: :desc).page(params[:page]).per(9)
       @user = current_user
@@ -37,7 +37,7 @@ class Public::ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
-      redirect_to article_path(@article), notice: "You have updated article successfully."
+      redirect_to article_path(@article), notice: "編集に成功しました"
     else
       render "edit"
     end
@@ -52,7 +52,7 @@ class Public::ArticlesController < ApplicationController
   def hashtag
     @user = current_user
     @tag = Hashtag.find_by(name_tag: params[:name])
-    @article = @tag.articles
+    @article = @tag.articles.order(created_at: :desc)
     @articles = Article.order(created_at: :desc).page(params[:page]).per(9)
 
   end

@@ -58,7 +58,7 @@ function initMap(){
 
     <%= form_with model: [@article, @article_comment], local: false do |f| %>
       <div><%= f.text_area :comment, rows: '5', placeholder: "comment", class: "form-control" %> </div>
-      <div><%= f.submit "送信", class: "btn btn-primary" %></div>
+      <div><%= f.submit "コメント送信", class: "btn btn-primary" %></div>
         <% end %>
 
    <% if @article.user == current_user %>

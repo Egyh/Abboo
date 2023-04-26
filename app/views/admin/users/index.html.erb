@@ -13,7 +13,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= image_tag user.get_profile_image, class: "rounded-circle", size:'30x30' %></td>
+        <td><%= image_tag user.get_profile_image, class: "rounded-circle border border-dark", size:'30x30' %></td>
         <td><%= user.name %></td>
         <td>
           <% if user.is_deleted == false %>

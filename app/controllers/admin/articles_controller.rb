@@ -19,7 +19,7 @@ class Admin::ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
-      redirect_to admin_article_path(@article), notice: "You have updated book successfully."
+      redirect_to admin_article_path(@article), notice: "更新に成功しました"
     else
       render "edit"
     end

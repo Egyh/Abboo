@@ -38,11 +38,10 @@ function initMap(){
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['SECRET_KEY'] %>&callback=initMap" async defer></script>
 
 
-<div class="favorites mt-2">
-<div id="favorite_buttons_<%= @article.id %>">
-　<%= render "public/favorites/favorite", article: @article %>
-　　</div>
-　　</div>
+<!--<div class="favorites mt-2">-->
+<!--<div id="favorite_buttons_<%##= render "public/favorites/favorite", article: @article %>-->
+<!--　　</div>-->
+<!--　　</div>-->
 
 
     <%= form_with model: [@article, @article_comment], local: false do |f| %>
