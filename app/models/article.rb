@@ -8,6 +8,7 @@ class Article < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :article_hashtags
   has_many :hashtags, through: :article_hashtags
+  has_many :tags, dependent: :destroy
 
   has_one_attached :article_image
 

@@ -9,6 +9,10 @@ class Public::ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user_id = current_user.id
     if @article.save
+     tags = Vision.get_image_data(@article.article_image)
+     tags.each do |tag|
+     @article.tags.create(name: tag)
+    end
       redirect_to article_path(@article), notice: "投稿に成功しました"
     else
       @articles = Article.order(created_at: :desc).page(params[:page]).per(9)
