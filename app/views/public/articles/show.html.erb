@@ -11,10 +11,13 @@
 <div class="card m-2 text-center card-warpper　">
    <%= image_tag @article.get_article_image, size:'300x300', class:"d-block mx-auto" %>
 
+<h5>画像認識タグ</h5>
    <div class="tag-box">
 　　<% @article.tags.each do |tag| %>
    <span class="label"><%= tag.name %></span>
    <% end %>
+   </div>
+
   <div class="card-body">
     <h2 class="card-title "><%= @article.title %></h2>
     <!--<p class="card-text"><%#= @article.body %></p>-->
