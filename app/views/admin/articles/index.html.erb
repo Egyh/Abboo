@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+        <h2 class="text-center border-bottom my-2">Articles</h2>
+
+      <!--<div style="display: flex; align-items: flex-end;">-->
+      <!--</div>-->
+      <div class="row">
+        <% @articles.each do |article|%>
+        <div class="col-md-4">
+          <div class="card m-2 text-center card-warpper">
+            <%= link_to admin_article_path(article.id) do %>
+              <%= image_tag article.get_article_image, class:"card-img-top index-img" %>
+                 <% end %>
+              <div class="card-body text-dark py-2 font-weight-bold ">
+                <%= link_to article.title, admin_article_path(article.id), class: "card-title mb-2" %>
+              </div>
+             <div class ="time">投稿日時：<%= l article.created_at, format: :short %></div>
+             <div>created by : <%= link_to edit_admin_user_path(article.user) do %>
+              <%= image_tag article.user.get_profile_image, class: "rounded-circle border border-darkS", size:'30x30' %>
+              <% end %>
+             </div>
+
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="text-center">
+        <%= paginate @articles %>
+      </div>
+    </div>
+  </div>
+</div>
