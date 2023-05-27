@@ -1,5 +1,5 @@
 class Admin::ArticlesController < ApplicationController
- before_action :authenticate_admin!, only: [:update]
+ before_action :authenticate_admin!
 
 
   def index
