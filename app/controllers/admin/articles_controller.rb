@@ -1,4 +1,6 @@
 class Admin::ArticlesController < ApplicationController
+ before_action :authenticate_admin!, only: [:update]
+
 
   def index
     @articles = Article.order(created_at: :desc).page(params[:page]).per(9)
