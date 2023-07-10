@@ -5,11 +5,11 @@
           <table class="table table-hover table-inverse">
             <% if @range == "User" %>
              <thead>
-                  <tr>
-                    <th>アイコン</th>
-                    <th>名前</th>
-                    <th></th>
-                  </tr>
+                <tr>
+                  <th>アイコン</th>
+                  <th>名前</th>
+                  <th></th>
+                </tr>
                 </thead>
               <tbody>
                 <% @users.each do |user| %>
@@ -21,16 +21,16 @@
                 <% end %>
               </tbody>
             <% else %>
-            <thead>
-                  <tr>
+              <thead>
+                <tr>
                     <th></th>
                     <th>タイトル</th>
                     <th>記事内容</th>
                     <th></th>
-                  </tr>
-                </thead>
-              <tbody>
-              <tbody>
+                    </tr>
+                  </thead>
+                <tbody>
+                <tbody>
                 <% @articles.each do |article| %>
                   <tr>
                     <td> <%= image_tag article.user.get_profile_image, size:'50x50', class: "rounded-circle border border-dark" %></td>
@@ -41,7 +41,7 @@
                 <% end %>
             <% end %>
             </tbody>
-              </table>
+          </table>
     </div>
   </div>
 </div>

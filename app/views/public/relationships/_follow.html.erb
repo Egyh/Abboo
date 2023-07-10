@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        　<% users.each do |user| %>
+        <% users.each do |user| %>
         <tr>
           <td><%= image_tag user.get_profile_image, size: '50x50', class: "rounded-circle border border-dark" %></td>
           <td><%= user.name %></td>
@@ -18,9 +18,9 @@
           <td><%= user.followers.count %></td>
           <td><%= link_to 'このユーザーを見る', user, class:"btn btn-info" %></td>
         </tr>
-         <% end %>
+          <% end %>
       </tbody>
     </table>
-<% else %>
-  <p>ユーザーはいません</p>
+  <% else %>
+    <p>ユーザーはいません</p>
 <% end %>
