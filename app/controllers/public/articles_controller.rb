@@ -42,9 +42,9 @@ class Public::ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
-    if @article.update(article_params)
-      redirect_to article_path(@article), notice: "編集に成功しました"
+    article = Article.find(params[:id])
+    if article.update(article_params)
+      redirect_to article_path(article), notice: "編集に成功しました"
     else
       render "edit"
     end
