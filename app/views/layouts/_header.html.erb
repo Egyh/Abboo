@@ -7,7 +7,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-
           <%= render 'public/searches/search' %>
         <% if user_signed_in? %>
           <li>
@@ -53,8 +52,7 @@
               <i class="fas fa-sign-out-alt"></i> Log out
             <% end %>
           </li>
-
-
+          
         <% else %>
           <li>
             <%= link_to root_path,class: 'nav-link text-light' do %>
@@ -78,6 +76,7 @@
           </li>
         <% end %>
         </ul>
+        </div>
       </div>
     </div>
   </nav>
