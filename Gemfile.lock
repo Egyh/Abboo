@@ -1,6 +1,6 @@
 GIT
-  remote: git@github.com:Studiosity/carmen-rails.git
-  revision: 1bf91d6302af81528afcb8b82ce33f93ee7264cf
+  remote: https://github.com/Studiosity/carmen-rails.git
+  revision: 57ff4db36fe7d783b5dbf08a57492b92d42e9be3
   specs:
     carmen-rails (1.0.1)
       carmen (~> 1.0)
@@ -147,7 +147,6 @@ GEM
     mini_mime (1.1.2)
     minitest (5.18.0)
     msgpack (1.7.0)
-    mysql2 (0.5.5)
     net-imap (0.3.4)
       date
       net-protocol
@@ -164,6 +163,7 @@ GEM
     parallel (1.23.0)
     parser (3.2.2.0)
       ast (~> 2.4.1)
+    pg (1.5.9)
     public_suffix (5.0.1)
     puma (3.12.6)
     racc (1.6.2)
@@ -263,7 +263,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.6.2-x86_64-linux)
     thor (1.2.1)
     tilt (2.1.0)
     timeout (0.3.2)
@@ -313,10 +312,10 @@ DEPENDENCIES
   jquery-rails
   kaminari (~> 1.2.1)
   listen (~> 3.3)
-  mysql2
   net-imap
   net-pop
   net-smtp
+  pg
   puma (~> 3.11)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.7, >= 6.1.7.3)
@@ -329,7 +328,6 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
   spring
-  sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
