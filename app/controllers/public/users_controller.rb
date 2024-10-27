@@ -1,7 +1,6 @@
 class Public::UsersController < ApplicationController
 
   before_action :is_matching_login_user, only: [:edit, :update]
-  before_action :ensure_correct_user, only: [:update]
   before_action :ensure_guest_user, only: [:edit]
 
   def index
@@ -41,15 +40,7 @@ class Public::UsersController < ApplicationController
 
   def favorites
     @user =  User.find(params[:id])
-    #likes = Favorite.where(user_id: @user.id).pluck(:article_id)
     @favorite_articles = Article.joins(:favorites).where(favorites: {user_id: @user.id}).order(created_at: :desc).page(params[:page]).per(9)
-  end
-
-  def ensure_correct_user
-    @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to user_path(current_user)
-    end
   end
 
   private
@@ -58,9 +49,7 @@ class Public::UsersController < ApplicationController
   end
 
   def is_matching_login_user
-    user_id = params[:id].to_i
-    unless user_id == current_user.id
-    redirect_to user_path(current_user)
+    redirect_to user_path(current_user) unless params[:id].to_i == current_user.id
     end
   end
 
