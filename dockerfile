@@ -1,5 +1,5 @@
 # Rubyのバージョンを3.1.2に設定
-FROM ruby:3.1.2-alpine
+FROM ruby:3.3.5-alpine
 
 # 必要なパッケージをインストール
 # RUN apk update && \
